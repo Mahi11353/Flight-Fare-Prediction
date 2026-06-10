@@ -34,22 +34,26 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    source = request.form["source"]
-    destination = request.form["destination"]
-    departure_date = request.form["departure_date"]
+    try:
+        source = request.form["source"]
+        destination = request.form["destination"]
+        departure_date = request.form["departure_date"]
 
-    flights = generate_predictions(
-        source,
-        destination,
-        departure_date
-    )
+        flights = generate_predictions(
+            source,
+            destination,
+            departure_date
+        )
 
-    return render_template(
-        "results.html",
-        flights=flights,
-        source=source,
-        destination=destination
-    )
+        return render_template(
+            "results.html",
+            flights=flights,
+            source=source,
+            destination=destination
+        )
+
+    except Exception as e:
+        return f"<h1>Error:</h1><pre>{str(e)}</pre>"
 
 
 
