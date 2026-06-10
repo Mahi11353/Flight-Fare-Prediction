@@ -1,0 +1,19 @@
+body{
+    background:#f5f7fb;
+    font-family:Arial;
+}
+
+h1,h2{
+    color:#1f2937;
+    font-weight:bold;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+}
+
+.btn-primary{
+    background:#2563eb;
+    border:none;
+}
